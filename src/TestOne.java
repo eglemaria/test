@@ -7,19 +7,21 @@ import java.security.NoSuchAlgorithmException;
  * @version 1.0
  */
 
-public class TestOne{
-    public static void main(String[] args) throws UnsupportedEncodingException,
-            NoSuchAlgorithmException {
-        byte[] theTextToDigestAsBytes=
-                "Mano gyvenimas yra labai geras ..."
-                        .getBytes("8859_1");
-        MessageDigest md= MessageDigest.getInstance("MD5");
-        md.update(theTextToDigestAsBytes);
-        byte[] digest= md.digest();
-
-        for(byte b: digest){
-            System.out.printf("%02X", b & 0xff);
-        }
-        System.out.println();
+public class testas{
+    public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+     GetHash("Egle Predkelyte");
     }
-}
+   
+    public static void GetHash(String name) throws UnsupportedEncodingException, NoSuchAlgorithmException{
+     
+        byte[] theTextToDigestAsBytes=name.getBytes("8859_1");
+           MessageDigest md= MessageDigest.getInstance("MD5");
+           md.update(theTextToDigestAsBytes);
+           byte[] digest= md.digest();
+           for(byte b: digest){
+               System.out.printf("%02X", b & 0xff);
+           }
+     
+     
+    }
+} 
